@@ -69,16 +69,17 @@ while True:
         if leitura_botao != estado_estavel_botao:
             estado_estavel_botao = leitura_botao
 
-            if estado_estavel_botao == 0 and not botao_processado:
+            if estado_estavel_botao == 0:
+                botao_processado = True
+
+            elif estado_estavel_botao == 1 and botao_processado:
                 total_pecas = 0
                 objeto_bloqueando = False
                 inicio_bloqueio = None
                 alerta_micro_parada_emitido = False
 
                 print("Turno resetado com sucesso. Contadores zerados.")
-                botao_processado = True
 
-            elif estado_estavel_botao == 1:
                 botao_processado = False
 
     sleep_ms(10)
